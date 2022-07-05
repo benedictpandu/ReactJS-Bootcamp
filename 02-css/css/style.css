@@ -1,0 +1,36 @@
+
+body{
+padding: 3%;
+}
+
+.container{
+    box-sizing: border-box;
+    width: 80%;
+    height: 100%;
+    /* background-color: red; */
+    margin: auto;
+    padding: 3%;
+    border-radius: 15px;
+    box-shadow: 2px -2px 13px -1px rgba(0,0,0,0.84);
+    -webkit-box-shadow: 2px -2px 13px -1px rgba(0,0,0,0.84);
+    -moz-box-shadow: 2px -2px 13px -1px rgba(0,0,0,0.84);
+
+}
+
+.article{
+    border-bottom: 2px #808080 solid;
+}
+
+.container__bottom{
+    margin-top: 5%;
+}
+
+.container__bottom button{
+    width: 100%;
+    padding: 1.5%;
+    background-color: #A149FA;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    
+}
