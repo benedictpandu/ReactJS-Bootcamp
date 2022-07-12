@@ -5,7 +5,9 @@ const myCountPromise = (param) => {
           resolve(param*2)
         },2000)
       } else {
+        setTimeout(()=>{
         reject("Maaf tidak ada nilai dalam parameter")
+        },2000)
       }
     })
   }
