@@ -1,17 +1,16 @@
 import React from 'react'
-import './style.css'
+import Tugas7 from './tugas7/tugas7'
+import Tugas8 from './tugas8/tugas8'
+
 
 
 const App = () => {
   return(
     <>
-        <div className="card">
-          <h1>Hi, Saya Bene</h1>
-          <hr/> 
-          <p>Saya dari Batch 36 sudah menginstall React </p>
-        </div>
+      <Tugas7/>
+      <Tugas8 name="Benediktus Pandu B" batch="36" email="beneedictpandu@gmail.com"/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
