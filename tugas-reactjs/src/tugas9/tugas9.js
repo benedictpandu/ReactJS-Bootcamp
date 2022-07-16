@@ -16,7 +16,7 @@ const Tugas9 = () => {
     <>
         <div className='card'>
             <p style={{textAlign: "center"}}>{angka}</p>
-            <button onClick={angkaHandle}>Tambah</button>
+            <button className='border-2 rounded-md' onClick={angkaHandle}>Tambah</button>
             {angka >= 10 ? <span>State count sudah lebih dari 10!!</span> : ""}
         </div>
     </>
