@@ -6,9 +6,9 @@ const Tugas7 = () => {
   return(
     <>
         <div className="card">
-          <h1>Hi, Saya Bene!</h1>
+          <h1 className='text-3xl font-semibold my-4'>Hi, Saya Bene!</h1>
           <hr/> 
-          <p>Saya dari Batch 36 sudah menginstall React </p>
+          <p>Saya dari Batch 36 sudah menginstall React :D</p>
         </div>
     </>
   )
