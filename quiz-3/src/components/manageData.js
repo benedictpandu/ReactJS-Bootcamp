@@ -124,27 +124,27 @@ const ManageData = () =>{
                
                 <h6 className='mt-3'>Gambar Data Game</h6><hr className='mb-3'/>
                 <label>Image URL : </label>
-                <input className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.image_url} name='image_url' />
+                <input className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.image_url} name='image_url' required />
                 <h6 className='mt-3'>Data Game</h6><hr className='mb-3'/>
                 <label>Name : </label>
-                <input className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.name}  name='name' />
+                <input className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.name}  name='name' required/>
                 <label>Category : </label>
-                <input className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.category}  name='category' />
+                <input className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.category}  name='category' required/>
                 <label>Description : </label>
-                <input className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.description}  name='description' />
+                <input className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.description}  name='description' required/>
                 <label>Price : </label>
-                <input type={'number'} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.price}  name='price' />
+                <input type={'number'} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.price}  name='price' required/>
                 <label>Rating : </label>
-                <input type={'number'} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.rating}  name='rating' />
+                <input type={'number'} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.rating}  name='rating' required/>
                 <label>Release : </label>
-                <input type={'number'} min="2007" max="2022" className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.release_year} name='release_year' />
+                <input type={'number'} min="2007" max="2022" className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.release_year} name='release_year' required/>
                 <label>Size : </label>
-                <input type={'number'} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.size} name='size' />
+                <input type={'number'} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.size} name='size' required/>
                 <h6 className='mt-3'>Compatible Device</h6><hr className='mb-3'/>
                 <label>android : </label>
-                <input type={"number"} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.is_android_app} name='is_android_app' />
+                <input type={"number"} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.is_android_app} name='is_android_app' required/>
                 <label>IOS : </label>
-                <input type={"number"} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.is_ios_app} name='is_ios_app' />
+                <input type={"number"} className='border-2 border-zinc-200 bg-zinc-100 rounded-md mb-5' onChange={handleInput} value={input.is_ios_app} name='is_ios_app' required/>
                 
                 <button className='border mt-5 bg-blue-700 border-blue-700 rounded-lg w-1/6 text-white p-2'><input type={'submit'} /></button>
             </form>   
