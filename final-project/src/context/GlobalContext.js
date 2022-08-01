@@ -14,6 +14,10 @@ let navigate  = useNavigate()
   const [data, setData] = useState(null);
   const [fetchStatus, setFetchStatus] = useState(true);
   const [currentId, setCurrentId] = useState(-1);
+  const [inputLogin,setInputLogin] = useState({
+    email:"",
+    password:""
+})
   const [input, setInput] = useState({
     title: "",
     job_type: "",
@@ -26,6 +30,14 @@ let navigate  = useNavigate()
     company_city: "",
     salary_min: "",
     salary_max: "",
+    name: "",
+    email: "",
+    password: "",
+    image_url: "",
+    password: "",
+    current_password: "",
+    new_password: "",
+    new_confirm_password: ""
   });
 
   const handleInput = (event) => {
@@ -53,8 +65,50 @@ let navigate  = useNavigate()
       setInput({ ...input, salary_min: value });
     } else if (name === "salary_max") {
       setInput({ ...input, salary_max: value });
+    }else if (name === "name") {
+      setInput({ ...input, name: value });
+    }else if (name === "email") {
+      setInput({ ...input, email: value });
+    }else if (name === "password") {
+      setInput({ ...input, password: value });
+    }else if (name === "image_url") {
+      setInput({ ...input, image_url: value });
+    }else if (name === "new_password") {
+      setInput({ ...input, new_password: value });
+    }else if (name === "new_confirm_password") {
+      setInput({ ...input, new_confirm_password: value });
+    }else if (name === "current_password") {
+      setInput({ ...input, current_password: value });
     }
   };
+
+  const handleSubmitRegis = (event) => {
+    event.preventDefault()
+
+    let {
+    name,
+    email,
+    password,
+    image_url
+    } = input
+
+    //create data
+    axios.post('https://dev-example.sanbercloud.com/api/register', { name,email,password,image_url })
+      .then((res) => {
+        setFetchStatus(true)
+        navigate('/')
+      })
+
+    //clear input setelah create data
+    setInput(
+      {
+        name:"",
+        email:"",
+        password:"",
+        image_url:""
+      }
+    )
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -94,7 +148,6 @@ let navigate  = useNavigate()
           { headers: { Authorization: "Bearer " + Cookies.get("token") } }
         )
         .then((res) => {
-          console.log(res);
           setFetchStatus(true);
           navigate('/dashboard/joblist')
         });
@@ -148,7 +201,6 @@ let navigate  = useNavigate()
         headers: { Authorization: "Bearer " + Cookies.get("token") },
       })
       .then((res) => {
-        console.log(res);
         setFetchStatus(true);
       });
   };
@@ -172,14 +224,70 @@ let navigate  = useNavigate()
   };
 
 
-  const handleDesc = (Desc) => {
-    if (Desc.length > 15) {
-      const desc = Desc.slice(0, 150).concat("...");
+
+const handleInputLogin = (event) =>{
+    let value= event.target.value
+    let name = event.target.name
+        setInputLogin({...inputLogin, [name] : value })
+}
+
+const handleLogin = (event) =>{
+    event.preventDefault()
+
+    let {email, password} = inputLogin
+    axios.post('https://dev-example.sanbercloud.com/api/login',{email,password})
+    .then((res)=>{
+        let data = res.data
+        Cookies.set('userName',data.user.name,{expires : 1})
+        Cookies.set('userImage',data.user.image_url,{expires : 1})
+        Cookies.set('token', data.token, {expires : 1})
+        navigate('/')
+
+    })
+    .catch((error)=>{
+        alert(error.message)
+    })
+}
+
+const handleChangePassword = (event) => {
+  event.preventDefault()
+
+  let {
+  current_password,
+  new_password,
+  new_confirm_password
+  } = input
+
+  //create data
+  axios.post('https://dev-example.sanbercloud.com/api/change-password', { current_password, new_password,new_confirm_password }, {
+    headers: { Authorization: "Bearer " + Cookies.get("token") },
+  })
+    .then((res) => {
+      setFetchStatus(true)
+      navigate('/')
+    })
+
+  //clear input setelah create data
+  setInput(
+    {
+      current_password:"",
+      new_password: "",
+      new_confirm_password:""
+    }
+  )
+   
+}
+
+
+  const handleDesc = (text) => {
+    if (text.length > 15) {
+      const desc = text.slice(0, 150).concat("...");
       return desc;
     } else {
-      return Desc;
+      return text;
     }
   };
+
   const handleDescTable = (Desc) => {
     if (Desc.length > 15) {
       const desc = Desc.slice(0, 13).concat("...");
@@ -191,7 +299,7 @@ let navigate  = useNavigate()
 
   const handlePrice = (price) => {
     if (price == 0) {
-      return "FREE";
+      return "Volunteering";
     } else {
       var reverse = price.toString().split("").reverse().join("");
       var ribuan = reverse.match(/\d{1,3}/g);
@@ -210,6 +318,8 @@ let navigate  = useNavigate()
   let state = {
     data,
     setData,
+    inputLogin,
+    setInputLogin,
     fetchStatus,
     setFetchStatus,
     currentId,
@@ -221,12 +331,16 @@ let navigate  = useNavigate()
   let handleFunction = {
     handleInput,
     handleSubmit,
+    handleInputLogin,
+    handleLogin,
     handleDelete,
     handleUpdate,
     handleDesc,
     handleDescTable,
     handlePrice,
+    handleChangePassword,
     handleSize,
+    handleSubmitRegis,
     fetchData,
   };
 

@@ -63,6 +63,7 @@ const DashboardForm = () => {
                           Title
                         </label>
                         <input
+                        required
                           onChange={handleInput}
                           value={input.title}
                           type="text"
@@ -75,16 +76,13 @@ const DashboardForm = () => {
                         <label className="block text-sm font-medium text-gray-700">
                           Job Type
                         </label>
-                        <select
+                        <input
+                        required
                           onChange={handleInput}
                           value={input.job_type}
                           name="job_type"
                           className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
-                        >
-                          <option value="On Site">On Site</option>
-                          <option value="Work From Home">Work From Home</option>
-                          <option value="Hybrid">Hybrid</option>
-                        </select>
+                        />
                       </div>
 
                       <div className="col-span-6 sm:col-span-3">
@@ -92,6 +90,7 @@ const DashboardForm = () => {
                           Job Description
                         </label>
                         <input
+                        required
                           onChange={handleInput}
                           value={input.job_description}
                           type="text"
@@ -104,18 +103,13 @@ const DashboardForm = () => {
                         <label className="block text-sm font-medium text-gray-700">
                           Job Tenure
                         </label>
-                        <select
+                        <input
+                        required
                           onChange={handleInput}
                           value={input.job_tenure}
                           name="job_tenure"
                           className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
-                        >
-                          <option value="Pegawai Tetap">Pegawai Tetap</option>
-                          <option value="Magang">Magang</option>
-                          <option value="Kontrak">Kontrak</option>
-                          <option value="Part Time">Part Time</option>
-                          <option value="PKWT">PKWT</option>
-                        </select>
+                        />
                       </div>
 
                       <div className="col-span-6 sm:col-span-3">
@@ -123,6 +117,7 @@ const DashboardForm = () => {
                           Job Qualification
                         </label>
                         <input
+                        required
                           onChange={handleInput}
                           value={input.job_qualification}
                           type="text"
@@ -136,11 +131,13 @@ const DashboardForm = () => {
                           Job Status
                         </label>
                         <select
+                          required
                           onChange={handleInput}
                           value={input.job_status}
                           name="job_status"
                           className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         >
+                          <option value="" disabled hidden>Select Here</option>
                           <option value="1">Open</option>
                           <option value="0">Close</option>
                         </select>
@@ -157,6 +154,7 @@ const DashboardForm = () => {
                           Company Name
                         </label>
                         <input
+                        required
                           onChange={handleInput}
                           value={input.company_name}
                           type="text"
@@ -170,6 +168,7 @@ const DashboardForm = () => {
                           Company Image
                         </label>
                         <input
+                        required
                           onChange={handleInput}
                           value={input.company_image_url}
                           type="text"
@@ -183,6 +182,7 @@ const DashboardForm = () => {
                           Company City
                         </label>
                         <input
+                        required
                           onChange={handleInput}
                           value={input.company_city}
                           type="text"
@@ -196,6 +196,7 @@ const DashboardForm = () => {
                           Minimum Salary
                         </label>
                         <input
+                        required
                           onChange={handleInput}
                           value={input.salary_min}
                           type="number"
@@ -209,6 +210,7 @@ const DashboardForm = () => {
                           Maximum Salary
                         </label>
                         <input
+                        required
                           onChange={handleInput}
                           value={input.salary_max}
                           type="number"

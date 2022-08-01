@@ -49,7 +49,7 @@ const Footer = () => {
                     <h3 className="text-xs font-semibold tracking-wider text-yellow-300 uppercase">Subscribe to our newsletter</h3>
                     <p className="mt-4 text-sm text-gray-500 lg:ml-auto">The latest news, articles, and resources, sent to your inbox weekly.</p>
                     <div className="inline-flex items-center gap-2 list-none lg:ml-auto">
-                        <form action method="post" id="revue-form" name="revue-form" target="_blank" className="p-1 mt-4 transition duration-500 ease-in-out transform border2 bg-gray-50 rounded-xl sm:max-w-lg sm:flex">
+                        <form id="revue-form" name="revue-form" target="_blank" className="p-1 mt-4 transition duration-500 ease-in-out transform border2 bg-gray-50 rounded-xl sm:max-w-lg sm:flex">
                         <div className="flex-1 min-w-0 revue-form-group">
                             <label htmlFor="member_email" className="sr-only">Email address</label>
                             <input id="cta-email" type="email" className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform bg-transparent border border-transparent rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" placeholder="Enter your email  " />
@@ -99,9 +99,8 @@ const Footer = () => {
             </a>
             </div>
             <div className="mt-8 text-center md:mt-0 md:order-1">
-            <span className="mt-2 text-sm font-light text-gray-500">
-                Copyright © 2020 - 2021
-                <a href="https://wickedlabs.dev" className="mx-2 text-wickedyellow 3over:text-gray-500" rel="noopener noreferrer">@wickedlabsHQ</a>. Since 2020
+            <span className="mt-2 text-sm font-light  text-gray-500">
+                Benediktus Pandu B || Copyright © 2022
             </span>
             </div>
         </div>

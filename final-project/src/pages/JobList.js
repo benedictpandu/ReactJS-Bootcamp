@@ -5,9 +5,9 @@ import Card from '../components/Card'
 const JobList = () => {
   return (
     <>
-    <div className='w-full px-24 my-10 flex flex-col '>
+    <div className='w-full px-24 my-10 flex flex-col justify-center '>
         <SearchFilterBar/>
-        <div className='mt-14 w-full grid md:grid-cols-3 gap-4 flex-wrap'>
+        <div className='mt-14 w-full grid md:grid-cols-2 mdx:grid-cols-3 gap-4 flex-wrap'>
             <Card/>
         </div>
     </div>

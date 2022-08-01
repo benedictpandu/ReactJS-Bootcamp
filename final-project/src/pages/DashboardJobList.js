@@ -148,27 +148,27 @@ const DashboardJoblist = () => {
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center bg-white text-sm">
                                   <p className="text-gray-900 whitespace-no-wrap">
-                                    {res.title}
+                                    {res.title === null ? " " : res.title}
                                   </p>
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">
                                   <p className="text-gray-900 whitespace-no-wrap">
-                                    {handleDescTable(res.job_description)}
+                                    {handleDescTable(res.job_description === null ? " " : res.job_description)}
                                   </p>
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">
                                   <p className="text-gray-900 whitespace-no-wrap">
-                                    {handleDescTable(res.job_qualification)}
+                                    {handleDescTable(res.job_qualification === null ? " " : res.job_qualification)}
                                   </p>
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">
                                   <p className="text-gray-900 whitespace-no-wrap">
-                                    {res.job_type}
+                                    {res.job_type === null ? " " : res.job_type}
                                   </p>
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">
                                   <p className="text-gray-900 whitespace-no-wrap">
-                                    {res.job_tenure}
+                                    {res.job_tenure === null ? " " :res.job_tenure}
                                   </p>
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">
@@ -194,22 +194,22 @@ const DashboardJoblist = () => {
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">
                                   <p className="text-gray-900 whitespace-no-wrap">
-                                    {res.company_name}
+                                    {res.company_name === null ? " " :res.company_name}
                                   </p>
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">
-                                  <img src={res.company_image_url} />
+                                  <img src={res.company_image_url === null ? " " : res.company_image_url} />
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center bg-white text-sm">
                                   <p className="text-gray-900 whitespace-no-wrap">
-                                    {res.company_city}
+                                    {res.company_city === null ? " " : res.company_city}
                                   </p>
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">
                                   <p className="text-gray-900 whitespace-no-wrap">
-                                    {handlePrice(res.salary_min) +
+                                    {handlePrice(res.salary_min === null ? " " : res.salary_min) +
                                       "-" +
-                                      handlePrice(res.salary_max)}
+                                      handlePrice(res.salary_max === null ? " " : res.salary_max)}
                                   </p>
                                 </td>
                                 <td className="px-3 py-5 border-b border-gray-200 text-center  bg-white text-sm">

@@ -20,7 +20,16 @@ module.exports = {
       '6xl': '4rem',
       '7xl': '5rem',
     },
-    extend: {},
+    extend: {
+      width: {
+        '115': '433px',
+        '128': '32rem',
+      },
+      screens: {
+        'mdx': '1483px',
+        // => @media (min-width: 992px) { ... }
+      },
+    },
   },
   plugins: [
     require('flowbite/plugin')

@@ -16,10 +16,6 @@ const NavigationBar = () => {
               <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
                 <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                   <div className="flex items-center justify-between w-full md:w-auto">
-                    <a href="#">
-                      <span className="sr-only">Workflow</span>
-                      
-                    </a>
                     <div className="-mr-2 flex items-center md:hidden">
                       <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500">
                         <span className="sr-only">Open main menu</span>
@@ -43,6 +39,8 @@ const NavigationBar = () => {
                     {Cookies.get('token') &&
                       <Link to="/login" className="font-medium text-yellow-300 hover:text-yellow-400" onClick={() => {
                         Cookies.remove('token')
+                        Cookies.remove("userName");
+                        Cookies.remove("userImage");
                     }}>
                       Logout
                     </Link>
@@ -83,19 +81,21 @@ const NavigationBar = () => {
                   <div className="px-2 pt-2 pb-3 space-y-1">
                     
                     <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</Link>
-                    <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Vacancy List</Link>
+                    <Link to="/joblist" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Vacancy List</Link>
                     {Cookies.get('token') &&
                     <Link to="/dashboard" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Dashboard</Link>
                     }
                   </div>
                   {!Cookies.get('token') &&
-                  <Link to="/login"className="block w-full px-5 py-3 text-center font-medium text-yellow-300 bg-gray-50 hover:bg-gray-100">
+                  <Link to="/"className="block w-full px-5 py-3 text-center font-medium text-yellow-300 bg-gray-50 hover:bg-gray-100">
                     Log in
                   </Link>
                   }
                   {Cookies.get('token') &&
                   <Link to="/login"className="block w-full px-5 py-3 text-center font-medium text-yellow-300 bg-gray-50 hover:bg-gray-100" onClick={() => {
                     Cookies.remove('token')
+                    Cookies.remove("userName");
+                  Cookies.remove("userImage");
                 }}>
                     Logout
                   </Link>

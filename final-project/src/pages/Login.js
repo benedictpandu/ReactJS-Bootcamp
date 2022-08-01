@@ -1,41 +1,17 @@
 import axios from 'axios'
-import React, { useState } from 'react'
-import Cookies from "js-cookie"
-import { useNavigate } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { GlobalContext } from '../context/GlobalContext'
 
 const Login = () => {
 
-  let navigate  = useNavigate()
+  
+  const { state, handleFunction } = useContext(GlobalContext);
 
-    const [input,setInput] = useState({
-        email:"",
-        password:""
-    })
-
-    const handleInput = (event) =>{
-        let value= event.target.value
-        let name = event.target.name
-            setInput({...input, [name] : value })
-    }
-
-    const handleLogin = (event) =>{
-        event.preventDefault()
-
-        let {email, password} = input
-        // console.log(input)
-        axios.post('https://dev-example.sanbercloud.com/api/login',{email,password})
-        .then((res)=>{
-            console.log(res)
-            let data = res.data
-            Cookies.set('token', data.token, {expires : 1})
-            navigate('/')
-        })
-        .catch((error)=>{
-            alert(error.message)
-        })
-    }
-
-
+  const { inputLogin} = state;
+  const { handleLogin, handleInputLogin } =
+    handleFunction;
+  
   return (
     <>
          <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -51,8 +27,8 @@ const Login = () => {
                   Email address
                 </label>
                 <input
-                  value={input.email}
-                  onChange={handleInput}
+                  value={inputLogin.email}
+                  onChange={handleInputLogin}
                   name="email"
                   type={'text'}
                   required
@@ -65,8 +41,9 @@ const Login = () => {
                   Password
                 </label>
                 <input
-                value={input.password}
-                onChange={handleInput}
+                minlength="8"
+                value={inputLogin.password}
+                onChange={handleInputLogin}
                   name="password"
                   type={'password'}
                   required
@@ -76,23 +53,11 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-yellow-300 focus:ring-yellow-400 border-gray-300 rounded"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  Remember me
-                </label>
-              </div>
-
+            <div className="flex items-center justify-end">
               <div className="text-sm">
-                <a href="#" className="font-medium text-yellow-300 hover:text-yellow-400">
-                  Forgot your password?
-                </a>
+                <Link to='/register' className="font-medium text-yellow-300 hover:text-yellow-400">
+                  Sign Up !
+                </Link>
               </div>
             </div>
 

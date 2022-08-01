@@ -8,10 +8,14 @@ import MainLayout from "./layouts/MainLayout";
 import DetailedJob from "./pages/DetailedJob";
 import DashboardForm from "./pages/DashboardForm";
 import { GlobalProvider } from "./context/GlobalContext";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import LoginRoutes from "./components/LoginRoutes";
 import AuthorizedRoute from "./components/AuthorizedRoute";
 import DashboardJoblist from "./pages/DashboardJobList";
+import Register from "./pages/Register";
+import NavigationBar from "./components/NavigationBar";
+import EditPassword from "./pages/EditPassword";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -22,7 +26,17 @@ function App() {
             path="/login"
             element={
               <LoginRoutes>
+                <NavigationBar/>
                 <Login />
+              </LoginRoutes>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <LoginRoutes>
+                <NavigationBar/>
+                <Register />
               </LoginRoutes>
             }
           />
@@ -46,7 +60,7 @@ function App() {
           />
 
           <Route
-            path="/detailed"
+            path="/joblist/:idData"
             element={
               <MainLayout>
                 <DetailedJob />
@@ -95,6 +109,17 @@ function App() {
               </AuthorizedRoute>
             }
           />
+          <Route
+            path="/change-password"
+            element={
+              <AuthorizedRoute>
+                <DashboardLayout>
+                 <EditPassword/>
+                </DashboardLayout>
+              </AuthorizedRoute>
+            }
+          />
+          <Route path="*" element={<NotFoundPage/>} />
         </Routes>
         
       </GlobalProvider>
