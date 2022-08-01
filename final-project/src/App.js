@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 import NavigationBar from "./components/NavigationBar";
 import EditPassword from "./pages/EditPassword";
 import NotFoundPage from "./pages/NotFoundPage";
+import ProfilPage from "./pages/ProfilPage";
 
 function App() {
   return (
@@ -116,6 +117,16 @@ function App() {
                 <DashboardLayout>
                  <EditPassword/>
                 </DashboardLayout>
+              </AuthorizedRoute>
+            }
+          />
+          <Route
+            path="/profil"
+            element={
+              <AuthorizedRoute>
+                <MainLayout>
+                 <ProfilPage/>
+                </MainLayout>
               </AuthorizedRoute>
             }
           />

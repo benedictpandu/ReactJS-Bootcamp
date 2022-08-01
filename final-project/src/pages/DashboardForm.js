@@ -68,7 +68,7 @@ const DashboardForm = () => {
                           value={input.title}
                           type="text"
                           name="title"
-                          className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         />
                       </div>
 
@@ -95,7 +95,7 @@ const DashboardForm = () => {
                           value={input.job_description}
                           type="text"
                           name="job_description"
-                          className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         />
                       </div>
 
@@ -122,7 +122,7 @@ const DashboardForm = () => {
                           value={input.job_qualification}
                           type="text"
                           name="job_qualification"
-                          className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         />
                       </div>
 
@@ -159,7 +159,7 @@ const DashboardForm = () => {
                           value={input.company_name}
                           type="text"
                           name="company_name"
-                          className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         />
                       </div>
 
@@ -173,7 +173,7 @@ const DashboardForm = () => {
                           value={input.company_image_url}
                           type="text"
                           name="company_image_url"
-                          className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         />
                       </div>
 
@@ -187,7 +187,7 @@ const DashboardForm = () => {
                           value={input.company_city}
                           type="text"
                           name="company_city"
-                          className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         />
                       </div>
 
@@ -201,7 +201,7 @@ const DashboardForm = () => {
                           value={input.salary_min}
                           type="number"
                           name="salary_min"
-                          className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         />
                       </div>
 
@@ -215,7 +215,7 @@ const DashboardForm = () => {
                           value={input.salary_max}
                           type="number"
                           name="salary_max"
-                          className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                         />
                       </div>
                     </div>

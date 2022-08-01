@@ -196,11 +196,13 @@ const Header = () => {
             </Transition>
           </Menu>
           <span className="w-1 h-8 rounded-lg bg-gray-200" />
+          <Link to="/profil">
           <img
             alt="profil"
             src={Cookies.get("userImage")}
             className="mx-auto h-8 w-8"
           />
+          </Link>
         </div>
       </div>
     </header>

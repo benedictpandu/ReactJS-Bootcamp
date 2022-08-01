@@ -35,9 +35,10 @@ const EditPassword = () => {
                         required
                         onChange={handleInput}
                         value={input.current_password}
-                        type="text"
+                        type={"password"}
                         name="current_password"
-                        className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        minLength={8}
+                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                       />
                     </div>
 
@@ -51,6 +52,7 @@ const EditPassword = () => {
                         value={input.new_password}
                         name="new_password"
                         type={"password"}
+                        minLength={8}
                         className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                       />
                     </div>
@@ -64,8 +66,9 @@ const EditPassword = () => {
                         onChange={handleInput}
                         value={input.new_confirm_password}
                         type={"password"}
+                        minLength={8}
                         name="new_confirm_password"
-                        className="mt-1 focus:ring-yellow-300 focus:border-yellow-300 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-yellow-300 focus:border-yellow-300 sm:text-sm"
                       />
                     </div>
                   </div>

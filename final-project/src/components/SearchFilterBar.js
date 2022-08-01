@@ -1,80 +1,14 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/GlobalContext";
+import "tw-elements";
 
 const SearchFilterBar = () => {
-  const { state } = useContext(GlobalContext);
-  const { data,setData, setFetchStatus } = state;
-  const [search, setSearch] = useState();
+  const { state, handleFunction } = useContext(GlobalContext);
+  const { filter } = state;
 
-
-
-
-  const handleChangeSearch = (event) => setSearch(event.target.value);
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    let fetchData = () => {
-      axios
-        .get(`https://dev-example.sanbercloud.com/api/job-vacancy`)
-        .then((result) => {
-          let data = result.data.data;
-
-          let searchData = data.filter((res) => {
-            return Object.values(res)
-              .join(" ")
-              .toLocaleLowerCase()
-              .includes(search.toLocaleLowerCase());
-
-          });
-
-            setData(searchData)
-          
-          
-        })
-        .catch((error) => {});
-      setFetchStatus(false);
-    };
-
-    fetchData();
-  };
-
-  const [filter,setFilter] = useState({
-    job_type:"",
-    job_tenure:"",
-    company_city:"",
-    company_name:""
-  })
-
-  const handleFilter = (event) =>{
-    event.preventDefault()
-    console.log(filter)
-    let fetchData = () => {
-      axios
-        .get(`https://dev-example.sanbercloud.com/api/job-vacancy`)
-        .then((result) => {
-          let data = result.data.data;
-
-          let filterData = data.filter((res) => {
-            return res.company_name === filter.company_name && res.company_city === filter.company_city && res.job_type === filter.job_type && res.job_tenure === filter.job_tenure
-
-          });
-
-            setData(filterData)
-          
-          
-        })
-        .catch((error) => {});
-      setFetchStatus(false);
-    };
-
-    fetchData();
-  }
-
-  const handleChangeFilter = (event) =>{
-    setFilter({...filter, [event.target.name] : event.target.value})
-
-  }
+  const { handleChangeSearch, handleSearch, handleFilter, handleChangeFilter } =
+    handleFunction;
 
   return (
     <>
@@ -110,25 +44,88 @@ const SearchFilterBar = () => {
           </form>
         </div>
 
-        <form onSubmit={handleFilter}>
-        <div className="flex items-center justify-between mt-4">
-          <p className="font-medium">Filters <br/><span className="text-xs">*Restricted Filter</span></p>
-          
-        </div>
-        <div>
-          <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3\4 gap-4 mt-4">
-            <input onChange={handleChangeFilter} value={filter.company_name} name="company_name" placeholder="Company Name" className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"/>
-            <input onChange={handleChangeFilter} value={filter.company_city} name="company_city" placeholder="City" className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"/>
-            <input onChange={handleChangeFilter} value={filter.job_type} name="job_type" placeholder="Job Type" className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"/>
-            <input onChange={handleChangeFilter} value={filter.job_tenure} name="job_tenure" placeholder="Job Tenure" className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"/>
+        <div className="accordion mt-4" id="accordionExample">
+          <div className="accordion-item bg-white border border-gray-300">
+            <h2 className="accordion-header mb-0" id="headingOne">
+              <button
+                className="
+                    accordion-button
+                    relative
+                    flex
+                    items-center
+                    w-full
+                    py-2
+                    pl-6
+                    px-2
+                    text-sm text-gray-500 text-left
+                    bg-white
+                    border-0
+                    rounded-none
+                    transition
+                  "
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Filter
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              className="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div className="accordion-body py-4 px-5">
+                <p className="text-xs">*Restricted Filter</p>
+                <form onSubmit={handleFilter}>
+                  <div>
+                    <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3\4 gap-4 mt-4">
+                      <input
+                        onChange={handleChangeFilter}
+                        value={filter.company_name}
+                        name="company_name"
+                        placeholder="Company Name"
+                        className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+                      />
+                      <input
+                        onChange={handleChangeFilter}
+                        value={filter.company_city}
+                        name="company_city"
+                        placeholder="City"
+                        className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+                      />
+                      <input
+                        onChange={handleChangeFilter}
+                        value={filter.job_type}
+                        name="job_type"
+                        placeholder="Job Type"
+                        className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+                      />
+                      <input
+                        onChange={handleChangeFilter}
+                        value={filter.job_tenure}
+                        name="job_tenure"
+                        placeholder="Job Tenure"
+                        className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-end mt-4">
+                    <button
+                      type="submit"
+                      className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="flex items-center justify-end mt-4">
-          <button type="submit" className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
-            Submit
-          </button>
-        </div>
-        </form>
       </div>
     </>
   );

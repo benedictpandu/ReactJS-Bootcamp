@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
   const features = [
     {
-      name: 'Tentang Kami',
+      name: 'About Us',
       description:
         'We are transforming the way candidates find work and the way companies recruit candidates.',
       icon: GlobeAltIcon,

@@ -12,7 +12,7 @@ const NotFoundPage = () => {
           <span className="text-yellow-300">Oops!</span> Page not found
         </p>
         <p className="mb-8 text-center text-gray-500 md:text-lg">
-          The page you’re looking for doesn’t exist.
+          The page you're looking for doesn't exist.
         </p>
         <Link to="/" className="px-6 py-2 text-sm font-semibold text-white rounded-md bg-yellow-300 hover:bg-yellow-400">Go home</Link>
       </div>

@@ -14,6 +14,14 @@ let navigate  = useNavigate()
   const [data, setData] = useState(null);
   const [fetchStatus, setFetchStatus] = useState(true);
   const [currentId, setCurrentId] = useState(-1);
+  const [search, setSearch] = useState();
+  const [open, setOpen] = useState(0);
+  const [filter,setFilter] = useState({
+    job_type:"",
+    job_tenure:"",
+    company_city:"",
+    company_name:""
+  })
   const [inputLogin,setInputLogin] = useState({
     email:"",
     password:""
@@ -278,6 +286,67 @@ const handleChangePassword = (event) => {
    
 }
 
+const handleChangeSearch = (event) => setSearch(event.target.value);
+
+const handleSearch = (event) => {
+  event.preventDefault();
+  let fetchData = () => {
+    axios
+      .get(`https://dev-example.sanbercloud.com/api/job-vacancy`)
+      .then((result) => {
+        let data = result.data.data;
+
+        let searchData = data.filter((res) => {
+          return Object.values(res)
+            .join(" ")
+            .toLocaleLowerCase()
+            .includes(search.toLocaleLowerCase());
+
+        });
+
+          setData(searchData)
+        
+        
+      })
+      .catch((error) => {});
+    setFetchStatus(false);
+  };
+
+  fetchData();
+};
+
+
+
+const handleFilter = (event) =>{
+  event.preventDefault()
+  console.log(filter)
+  let fetchData = () => {
+    axios
+      .get(`https://dev-example.sanbercloud.com/api/job-vacancy`)
+      .then((result) => {
+        let data = result.data.data;
+
+        let filterData = data.filter((res) => {
+          return res.company_name === filter.company_name && res.company_city === filter.company_city && res.job_type === filter.job_type && res.job_tenure === filter.job_tenure
+
+        });
+
+          setData(filterData)
+        
+        
+      })
+      .catch((error) => {});
+    setFetchStatus(false);
+  };
+
+  fetchData();
+}
+
+const handleChangeFilter = (event) =>{
+  setFilter({...filter, [event.target.name] : event.target.value})
+
+}
+
 
   const handleDesc = (text) => {
     if (text.length > 15) {
@@ -326,6 +395,12 @@ const handleChangePassword = (event) => {
     setCurrentId,
     input,
     setInput,
+    filter,
+    setFilter,
+    search, 
+    setSearch,
+    open,
+    setOpen
   };
 
   let handleFunction = {
@@ -342,6 +417,10 @@ const handleChangePassword = (event) => {
     handleSize,
     handleSubmitRegis,
     fetchData,
+    handleChangeSearch,
+    handleSearch,
+    handleFilter,
+    handleChangeFilter,
   };
 
   return (
