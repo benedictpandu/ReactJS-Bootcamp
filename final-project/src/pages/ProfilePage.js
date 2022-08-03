@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 import React from 'react'
 
-const ProfilPage = () => {
+const ProfilePage = () => {
   return (
    
     <>
@@ -27,4 +27,4 @@ const ProfilPage = () => {
   )
 }
 
-export default ProfilPage
+export default ProfilePage

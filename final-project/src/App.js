@@ -16,7 +16,7 @@ import Register from "./pages/Register";
 import NavigationBar from "./components/NavigationBar";
 import EditPassword from "./pages/EditPassword";
 import NotFoundPage from "./pages/NotFoundPage";
-import ProfilPage from "./pages/ProfilPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -52,7 +52,7 @@ function App() {
           />
 
           <Route
-            path="/joblist"
+            path="/list-job-vacancy"
             element={
               <MainLayout>
                 <JobList />
@@ -61,7 +61,7 @@ function App() {
           />
 
           <Route
-            path="/joblist/:idData"
+            path="/list-job-vacancy/:idData"
             element={
               <MainLayout>
                 <DetailedJob />
@@ -81,7 +81,7 @@ function App() {
           />
 
           <Route
-            path="/dashboard/joblist"
+            path="/dashboard/list-job-vacancy"
             element={
               <AuthorizedRoute>
                 <DashboardLayout>
@@ -91,7 +91,7 @@ function App() {
             }
           />
           <Route
-            path="/dashboard/create"
+            path="/dashboard/list-job-vacancy/form"
             element={
               <AuthorizedRoute>
                 <DashboardLayout>
@@ -101,7 +101,7 @@ function App() {
             }
           />
           <Route
-            path="/dashboard/edit/:idData"
+            path="/dashboard/list-job-vacancy/:idData"
             element={
               <AuthorizedRoute>
                 <DashboardLayout>
@@ -111,7 +111,7 @@ function App() {
             }
           />
           <Route
-            path="/change-password"
+            path="/dashboard/change-password"
             element={
               <AuthorizedRoute>
                 <DashboardLayout>
@@ -121,11 +121,11 @@ function App() {
             }
           />
           <Route
-            path="/profil"
+            path="/dashboard/profile"
             element={
               <AuthorizedRoute>
                 <MainLayout>
-                 <ProfilPage/>
+                 <ProfilePage/>
                 </MainLayout>
               </AuthorizedRoute>
             }

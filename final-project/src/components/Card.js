@@ -50,7 +50,7 @@ const Card = () => {
                         {res.job_status == 1 ? "Open" : "Closed"}
                       </span>
                     <Link
-                      to={`/joblist/${res.id}`}
+                      to={`/list-job-vacancy/${res.id}`}
                       className="bg-yellow-300 text-white hover:bg-yellow-400 mt-2 w-18 text-center lg:mt-0 p-2 md:p-2 text-xs rounded-md"
                     >
                       Read More

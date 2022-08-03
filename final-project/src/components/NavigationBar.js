@@ -27,7 +27,7 @@ const NavigationBar = () => {
                 <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                   
                     <Link to="/" className="font-medium text-gray-500 hover:text-gray-900">Home</Link>
-                    <Link to="/joblist" className="font-medium text-gray-500 hover:text-gray-900">Vacancy List</Link>
+                    <Link to="/list-job-vacancy" className="font-medium text-gray-500 hover:text-gray-900">Vacancy List</Link>
                     {Cookies.get('token') &&
                     <Link to="/dashboard" className="font-medium text-gray-500 hover:text-gray-900">Dashboard</Link>
                     }
@@ -81,7 +81,7 @@ const NavigationBar = () => {
                   <div className="px-2 pt-2 pb-3 space-y-1">
                     
                     <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</Link>
-                    <Link to="/joblist" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Vacancy List</Link>
+                    <Link to="/list-job-vacancy" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Vacancy List</Link>
                     {Cookies.get('token') &&
                     <Link to="/dashboard" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Dashboard</Link>
                     }
@@ -107,6 +107,8 @@ const NavigationBar = () => {
 
     </>
   )
+
+  
 }
 
 export default NavigationBar

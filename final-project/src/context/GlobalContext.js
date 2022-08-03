@@ -157,7 +157,7 @@ let navigate  = useNavigate()
         )
         .then((res) => {
           setFetchStatus(true);
-          navigate('/dashboard/joblist')
+          navigate('/dashboard/list-job-vacancy')
         });
     } else {
       // update data
@@ -181,7 +181,7 @@ let navigate  = useNavigate()
         )
         .then((res) => {
           setFetchStatus(true);
-          navigate('/dashboard/joblist')
+          navigate('/dashboard/list-job-vacancy')
         });
     }
 
@@ -217,7 +217,7 @@ let navigate  = useNavigate()
     let idData = parseInt(event.target.value)
 
     setCurrentId(idData)
-    navigate(`/dashboard/edit/${idData}`)
+    navigate(`/dashboard/list-job-vacancy/${idData}`)
     
   }
 

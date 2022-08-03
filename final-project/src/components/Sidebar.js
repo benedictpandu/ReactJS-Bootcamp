@@ -45,14 +45,14 @@ const Sidebar = () => {
             </Link>
             <Link
               className="w-full text-gray-800 dark:text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start"
-              to="/profil"
+              to="/dashboard/profile"
             >
               <span className="text-left">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 </svg>
               </span>
-              <span className="mx-2 text-sm font-normal">Profil</span>
+              <span className="mx-2 text-sm font-normal">Profile</span>
             </Link>
             <Link
               className="w-full text-gray-800 dark:text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start"
@@ -78,7 +78,7 @@ const Sidebar = () => {
             </Link>
             <Link
               className="w-full text-gray-800 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-transparent"
-              to="/dashboard/joblist"
+              to="/dashboard/list-job-vacancy"
             >
               <span className="text-left">
                 <svg
@@ -100,7 +100,7 @@ const Sidebar = () => {
             </Link>
             <Link
               className="w-full text-gray-800 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-transparent"
-              to="/dashboard/create"
+              to="/dashboard/list-job-vacancy/form"
             >
               <span className="text-left">
                 <svg
@@ -122,7 +122,7 @@ const Sidebar = () => {
             </Link>
             <Link
               className="w-full text-gray-800 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-transparent"
-              to="/change-password"
+              to="/dashboard/change-password"
             >
               <span className="text-left">
                 <svg
